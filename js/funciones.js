@@ -1,13 +1,30 @@
 function filltable(data){
         //console.log(data)
-        var table = document.querySelector("cardguia")
+        var cardguia = document.querySelector("cardguia");
+
         for (let json in data) {
           let object= data[json];
           console.log(object);
-          for(let drink in object)
-          console.log(object[drink]["strDrinkThumb"]);
-          let card= table.insertRow();
-            console.log(table);;
+
+          for(let drink in object){
+
+            let img =object[drink]["strDrinkThumb"];
+            let nombre = object[drink]["strDrink"];
+            let alcohol =object[drink]["strAlcoholic"];
+            let str = 1;
+            let ingredientes=[];
+            console.log(ingredientes);
+            let ingrediente = "strIngredient"+ str +"";
+            while (str<=15&&object[drink][ingrediente]!==null) {
+
+
+              ingredientes.push(object[drink][ingrediente]);
+              ingrediente = "strIngredient"+ str +"";
+              str++;
+
+            }
+            console.log(ingredientes);
+        }
 
           /*
 
@@ -44,3 +61,14 @@ function filltable(data){
       fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
       .then((response) => response.json())
       .then((data) => filltable(data));
+
+
+class cocktel {
+  constructor(drink,num) {
+    this.imagen=drink[num]["strDrinkThumb"];
+    //this.nombre=nombre;
+    //this.ingredientes= ingrediente(ingredientes);
+    //this.alcohol=alcohol;
+
+  }
+}
