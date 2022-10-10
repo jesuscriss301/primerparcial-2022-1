@@ -11,19 +11,20 @@
       <h1 class="text-center">COCKTAILS DRINKS</h1>
 
       <div class="container text-center">
-        <div class="row align-items-center" id="container">
-          <div class="card col-xs-12 col-sm-6 col-md-4 col-lg-3 col-sg-3 "  id="cardguia">
+        <div class="row align-items-top" id="container">
+          <div class="card col-xs-12 col-sm-6 col-md-4 col-lg-3 col-sg-3 mt-2 "  id="cardguia" style="height=100%;">
             <img src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg" class="card-img-top" alt="coctel1" id="imgcocktel">
             <div class="card-body" id="bodycard">
               <h5 class="card-title" id="titulococktel">Margarita</h5>
-              <h6 id="ingredientes">ingredientes</h6>
+              <h6 class="fw-bolder" id="ingredientes">ingredientes</h6>
               <ul class="list-group list-group-flush" id="listingredientes">
                 <li class="list-group-item" id=ingrediente>Tequila</li>
               </ul>
             </div>
             <div class="card-footer" id="cardfooter">
               <div class="m-2 bg-warning rounded-pill" id="alcohol">alcohol</div>
-              <a href="#" class="card-link" id="comprar" >comprar </a>
+              <button type="button" class="btn btn-outline-warning" id="comprar" onclick="lacompracion()">Warning</button>
+
             </div>
           </div>
         </div>

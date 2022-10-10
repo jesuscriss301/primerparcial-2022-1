@@ -6,10 +6,11 @@ function filltable(data){
   //console.log(data)
   var cardguia = document.querySelector("cardguia");
   var card ;
+
   //container.insertAdjacentElement('beforeend',card);
   for (let json in data) {
     let object= data[json];
-    console.log(object);
+    //console.log(object);
     for(let drink in object){
       let img =object[drink]["strDrinkThumb"];
       let name = object[drink]["strDrink"];
@@ -20,17 +21,22 @@ function filltable(data){
       let ingrediente = "strIngredient"+ str +"";
       while (str<=15&&object[drink][ingrediente]!==null) {
         ingredientes.push(object[drink][ingrediente]);
-        ingrediente = "strIngredient"+ str +"";
         str++;
+        ingrediente = "strIngredient"+ str +"";
+        //str++;
       }
-      card = crearCard(drink, img);
+      card = crearCard(drink, img, name,ingredientes,alcohol );
 
       //container.insertAdjacentElement("beforeend",card);
       //console.log(ingredientes);
     }
   }
+  eliminarP()
 }
-function crearCard(i, image){
+function eliminarP(){
+  cardguia.remove();
+}
+function crearCard(i, image, titulo, ingredients, al){
 
   let card = cardguia.cloneNode();
   let img =imgcocktel.cloneNode();
@@ -55,11 +61,21 @@ function crearCard(i, image){
       comprar1.setAttribute('id','comprar' + i);
 
       img.setAttribute('src', image);
-
+      titulococktel1.insertAdjacentText('beforeend', titulo);
+      ingredientes1.insertAdjacentText('beforeend', "ingredientes");
+      //console.log(ingredients);
+      for (let ingrediente in ingredients) {
+        let i = ingrediente1.cloneNode();
+        i.insertAdjacentText('beforeend', ingredients[ingrediente]);
+        //console.log(ingrediente);
+        listingredientes1.insertAdjacentElement('beforeend',i);
+      }
+      alcohol1.insertAdjacentText('beforeend', al);
+      comprar1.insertAdjacentText('beforeend', "comprar");
 
     cardfooter1.insertAdjacentElement('beforeend',alcohol1);
     cardfooter1.insertAdjacentElement('beforeend',comprar1);
-      listingredientes1.insertAdjacentElement('beforeend',ingrediente1);
+      //listingredientes1.insertAdjacentElement('beforeend',ingrediente1);
     bodycard1.insertAdjacentElement('beforeend',titulococktel1);
     bodycard1.insertAdjacentElement('beforeend',ingredientes1);
     bodycard1.insertAdjacentElement('beforeend',listingredientes1);
@@ -68,4 +84,8 @@ function crearCard(i, image){
     card.insertAdjacentElement('beforeend',cardfooter1);
     container.insertAdjacentElement('beforeend',card);
     return card;
+}
+function lacompracion(){
+
+  
 }
